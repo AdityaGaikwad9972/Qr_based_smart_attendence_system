@@ -584,3 +584,180 @@ body {
     font-size: 14px;
   }
 }
+/* =========================================================
+   FORGOT PASSWORD
+   ========================================================= */
+
+.forgot-password-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: -8px;
+  margin-bottom: 18px;
+}
+
+.forgot-password-button {
+  border: none;
+  background: transparent;
+
+  color: #2563eb;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  padding: 5px 0;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  transition: color 0.2s ease;
+}
+
+.forgot-password-button:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+.forgot-lock {
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   SIGN UP
+   ========================================================= */
+
+.signup-container {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 6px;
+
+  margin-top: 18px;
+
+  font-size: 14px;
+
+  color: #6f7c92;
+}
+
+.signup-button {
+  border: none;
+
+  background: transparent;
+
+  color: #2563eb;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  padding: 3px 5px;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.signup-button:hover {
+  color: #1d4ed8;
+
+  text-decoration: underline;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   BACK TO LOGIN
+   ========================================================= */
+
+.back-auth-button {
+  width: 100%;
+
+  margin-top: 18px;
+
+  padding: 10px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #2563eb;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.back-auth-button:hover {
+  color: #1d4ed8;
+
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   RESET PASSWORD SUCCESS
+   ========================================================= */
+
+.reset-success {
+  text-align: center;
+
+  padding: 10px 0 5px;
+}
+
+.reset-success-icon {
+  width: 60px;
+  height: 60px;
+
+  margin: 0 auto 15px;
+
+  border-radius: 50%;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.reset-success h3 {
+  color: #17223b;
+
+  font-size: 20px;
+
+  margin-bottom: 8px;
+}
+
+.reset-success p {
+  color: #7b879d;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   BLUE LOCK ICON FOR FORGOT PASSWORD PAGE
+   ========================================================= */
+
+.login-card .card-a:has(+ h2) {
+  /* Keeps existing card design intact */
+}
