@@ -1,0 +1,250 @@
+.selfie-page {
+  min-height: 100vh;
+  background: #f7f8fc;
+  color: #17213a;
+}
+
+.selfie-header {
+  height: 72px;
+  background: white;
+  border-bottom: 1px solid #e5e7ef;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+}
+
+.selfie-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.selfie-brand-a {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #7045e8;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.selfie-brand h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.selfie-brand span {
+  color: #8791aa;
+  font-size: 13px;
+}
+
+.selfie-back-btn {
+  background: white;
+  border: 1px solid #dfe3ed;
+  border-radius: 9px;
+  padding: 10px 18px;
+  cursor: pointer;
+  color: #39466a;
+}
+
+.selfie-container {
+  width: 1100px;
+  max-width: 90%;
+  margin: auto;
+  padding: 55px 0;
+}
+
+.selfie-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.selfie-title p {
+  color: #7045e8;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.selfie-title h1 {
+  font-size: 36px;
+  margin: 10px 0;
+}
+
+.selfie-title span {
+  color: #7d89a5;
+}
+
+.selfie-content {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 25px;
+}
+
+.selfie-card,
+.verification-card {
+  background: white;
+  border: 1px solid #e4e7ef;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.selfie-card-header {
+  padding: 22px;
+  border-bottom: 1px solid #edf0f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selfie-card-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.selfie-status {
+  background: #f1f2f6;
+  color: #777f94;
+  padding: 7px 13px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.selfie-status.live {
+  background: #e7f9ef;
+  color: #1c9b5a;
+}
+
+.selfie-camera-area {
+  padding: 28px;
+  text-align: center;
+}
+
+.selfie-camera-frame {
+  height: 430px;
+  background: #171717;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.selfie-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.face-frame {
+  position: absolute;
+  width: 210px;
+  height: 270px;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.selfie-instruction {
+  color: #7d89a5;
+  margin: 18px 0;
+}
+
+.capture-btn {
+  border: none;
+  background: #7045e8;
+  color: white;
+  padding: 13px 35px;
+  border-radius: 9px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.capture-success {
+  color: #1c9b5a;
+  font-weight: 700;
+}
+
+.selfie-error {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.9);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.selfie-error p {
+  max-width: 300px;
+}
+
+.selfie-error button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.verification-card {
+  padding: 30px;
+}
+
+.verification-card h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.verification-step {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  color: #8a93a8;
+}
+
+.verification-step > div {
+  min-width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #f0f1f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.verification-step strong {
+  color: #17213a;
+}
+
+.verification-step p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+.verification-step.completed > div {
+  background: #e7f9ef;
+  color: #1c9b5a;
+}
+
+.verification-step.active > div {
+  background: #eee8ff;
+  color: #7045e8;
+}
+
+@media (max-width: 800px) {
+  .selfie-content {
+    grid-template-columns: 1fr;
+  }
+
+  .selfie-camera-frame {
+    height: 350px;
+  }
+}
