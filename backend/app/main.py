@@ -3,7 +3,7 @@ from sqlalchemy import text
 
 from app.database.connection import engine
 from app.routers.auth import router as auth_router
-
+from app.attendance.router import router as attendance_router
 
 app = FastAPI(
     title="QR Based Smart Attendance System",
@@ -12,6 +12,7 @@ app = FastAPI(
 
 
 app.include_router(auth_router)
+app.include_router(attendance_router)
 
 
 @app.get("/")

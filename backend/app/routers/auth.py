@@ -1,7 +1,10 @@
+from dataclasses import dataclass
+
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from sqlalchemy.orm import Session
+from dataclasses import dataclass
 
 from app.core.config import settings
 from app.core.security import create_access_token, verify_password
@@ -136,7 +139,19 @@ def token(
         "user": user,
     }
 
+@dataclass
+class UserPrincipal:
+    user_id: int
+    role: str
 
+
+def get_current_principal(
+    current_user: User = Depends(get_current_user),
+) -> UserPrincipal:
+    return UserPrincipal(
+        user_id=current_user.id,
+        role=current_user.role.value,
+    )
 def get_current_user(
     token: str = Depends(oauth2_scheme),
     db: Session = Depends(get_db),

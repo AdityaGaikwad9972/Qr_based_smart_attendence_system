@@ -2,7 +2,7 @@ from datetime import datetime
 from enum import Enum
 from sqlalchemy import DateTime, Enum as SqlEnum, ForeignKey, Index, String, UniqueConstraint, func
 from sqlalchemy.orm import Mapped, mapped_column
-from app.database import Base  # Connect to Member 3's database module.
+from app.database.base import Base  # Change only if the shared project locates Base elsewhere.
 
 class SessionStatus(str, Enum):
     ACTIVE = "active"
