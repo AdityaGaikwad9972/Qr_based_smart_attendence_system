@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Faculty Registration | Smart Attendance</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef3ff,
+                    #f8faff
+                );
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 30px 15px;
+
+            color: #111827;
+        }
+
+
+        /* =========================
+           REGISTRATION CARD
+        ========================== */
+
+        .signup-card {
+
+            width: 100%;
+
+            max-width: 620px;
+
+            background: white;
+
+            border-radius: 20px;
+
+            padding: 40px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(30, 50, 100, 0.12);
+        }
+
+
+        /* =========================
+           LOGO
+        ========================== */
+
+        .logo {
+
+            width: 60px;
+
+            height: 60px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border-radius: 16px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #4f46e5
+                );
+
+            color: white;
+
+            font-size: 22px;
+
+            font-weight: 700;
+
+            box-shadow:
+                0 10px 25px
+                rgba(37, 99, 235, 0.25);
+        }
+
+
+        h1 {
+
+            text-align: center;
+
+            font-size: 28px;
+
+            margin-bottom: 6px;
+        }
+
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #64748b;
+
+            margin-bottom: 30px;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           FORM
+        ========================== */
+
+        .form-section {
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 14px;
+
+            padding: 25px;
+        }
+
+
+        .section-title {
+
+            font-size: 18px;
+
+            margin-bottom: 22px;
+
+            color: #0f172a;
+        }
+
+
+        .form-group {
+
+            margin-bottom: 18px;
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            color: #334155;
+        }
+
+
+        .form-group input,
+        .form-group select {
+
+            width: 100%;
+
+            height: 48px;
+
+            padding: 0 14px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 9px;
+
+            outline: none;
+
+            font-size: 14px;
+
+            color: #1e293b;
+
+            background: white;
+
+            transition: 0.2s;
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus {
+
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(37, 99, 235, 0.10);
+        }
+
+
+        /* =========================
+           TWO COLUMNS
+        ========================== */
+
+        .two-column {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 15px;
+        }
+
+
+        /* =========================
+           PASSWORD MESSAGE
+        ========================== */
+
+        .password-message {
+
+            margin-top: 6px;
+
+            font-size: 12px;
+
+            color: #64748b;
+        }
+
+
+        .password-error {
+
+            color: #dc2626;
+        }
+
+
+        .password-success {
+
+            color: #16a34a;
+        }
+
+
+        /* =========================
+           REGISTER BUTTON
+        ========================== */
+
+        .register-button {
+
+            width: 100%;
+
+            height: 50px;
+
+            margin-top: 8px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #4f46e5
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+
+        .register-button:hover {
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(37, 99, 235, 0.25);
+        }
+
+
+        /* =========================
+           LOGIN LINK
+        ========================== */
+
+        .login-link {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+            color: #64748b;
+
+            font-size: 14px;
+        }
+
+
+        .login-link a {
+
+            color: #2563eb;
+
+            text-decoration: none;
+
+            font-weight: 600;
+        }
+
+
+        .login-link a:hover {
+
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 600px) {
+
+            .signup-card {
+
+                padding: 25px 20px;
+            }
+
+
+            .two-column {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="signup-card">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+            SA
+        </div>
+
+
+        <h1>
+            Smart Attendance
+        </h1>
+
+
+        <p class="subtitle">
+            Faculty Registration
+        </p>
+
+
+
+        <!-- =========================
+             REGISTRATION FORM
+        ========================== -->
+
+        <form id="facultySignupForm">
+
+
+            <div class="form-section">
+
+
+                <h2 class="section-title">
+                    Faculty Account
+                </h2>
+
+
+                <!-- FACULTY ID -->
+
+                <div class="form-group">
+
+                    <label for="facultyId">
+                        Faculty ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="facultyId"
+                        placeholder="Enter your Faculty ID"
+                        required>
+
+                </div>
+
+
+
+                <!-- FULL NAME -->
+
+                <div class="form-group">
+
+                    <label for="fullName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Enter your full name"
+                        required>
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email address"
+                        required>
+
+                </div>
+
+
+
+                <!-- DEPARTMENT -->
+
+                <div class="form-group">
+
+                    <label for="department">
+                        Department
+                    </label>
+
+                    <select
+                        id="department"
+                        required>
+
+                        <option value="">
+                            Select Department
+                        </option>
+
+                        <option value="CSE">
+                            Computer Science & Engineering
+                        </option>
+
+                        <option value="ISE">
+                            Information Science & Engineering
+                        </option>
+
+                        <option value="ECE">
+                            Electronics & Communication
+                        </option>
+
+                        <option value="EEE">
+                            Electrical & Electronics
+                        </option>
+
+                        <option value="ME">
+                            Mechanical Engineering
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- PASSWORD + CONFIRM PASSWORD -->
+
+                <div class="two-column">
+
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Create password"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm password"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <p
+                    id="passwordMessage"
+                    class="password-message">
+
+                    Password must contain at least 6 characters.
+
+                </p>
+
+
+                <!-- REGISTER -->
+
+                <button
+                    type="submit"
+                    class="register-button">
+
+                    Create Faculty Account
+
+                </button>
+
+
+            </div>
+
+        </form>
+
+
+
+        <!-- LOGIN -->
+
+        <p class="login-link">
+
+            Already have an account?
+
+            <a href="index.html">
+                Login
+            </a>
+
+        </p>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        const form =
+            document.getElementById(
+                "facultySignupForm"
+            );
+
+
+        const password =
+            document.getElementById(
+                "password"
+            );
+
+
+        const confirmPassword =
+            document.getElementById(
+                "confirmPassword"
+            );
+
+
+        const passwordMessage =
+            document.getElementById(
+                "passwordMessage"
+            );
+
+
+
+        /* =========================
+           PASSWORD VALIDATION
+        ========================== */
+
+        function checkPassword() {
+
+            if (
+                password.value.length < 6
+            ) {
+
+                passwordMessage.textContent =
+                    "Password must contain at least 6 characters.";
+
+                passwordMessage.className =
+                    "password-message password-error";
+
+                return false;
+            }
+
+
+            if (
+                password.value !==
+                confirmPassword.value
+            ) {
+
+                passwordMessage.textContent =
+                    "Passwords do not match.";
+
+                passwordMessage.className =
+                    "password-message password-error";
+
+                return false;
+            }
+
+
+            passwordMessage.textContent =
+                "✓ Passwords match.";
+
+            passwordMessage.className =
+                "password-message password-success";
+
+            return true;
+        }
+
+
+
+        password.addEventListener(
+            "input",
+            checkPassword
+        );
+
+
+        confirmPassword.addEventListener(
+            "input",
+            checkPassword
+        );
+
+
+
+        /* =========================
+           FORM SUBMIT
+        ========================== */
+
+        form.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                if (!checkPassword()) {
+
+                    return;
+
+                }
+
+
+                const facultyId =
+                    document.getElementById(
+                        "facultyId"
+                    ).value.trim();
+
+
+                const fullName =
+                    document.getElementById(
+                        "fullName"
+                    ).value.trim();
+
+
+                const email =
+                    document.getElementById(
+                        "email"
+                    ).value.trim();
+
+
+                const department =
+                    document.getElementById(
+                        "department"
+                    ).value;
+
+
+
+                if (
+                    facultyId === "" ||
+                    fullName === "" ||
+                    email === "" ||
+                    department === ""
+                ) {
+
+                    alert(
+                        "Please fill in all fields."
+                    );
+
+                    return;
+
+                }
+
+
+
+                /*
+                    TEMPORARY FRONTEND TEST
+
+                    Later this information will
+                    be sent to your backend-auth
+                    API and stored in MySQL.
+                */
+
+                const facultyData = {
+
+                    facultyId:
+                        facultyId,
+
+                    fullName:
+                        fullName,
+
+                    email:
+                        email,
+
+                    department:
+                        department,
+
+                    role:
+                        "FACULTY"
+
+                };
+
+
+                console.log(
+                    "Faculty Registration:",
+                    facultyData
+                );
+
+
+                alert(
+                    "Faculty account created successfully!"
+                );
+
+
+                /*
+                    Later:
+
+                    fetch(
+                        "http://localhost:5000/api/auth/faculty/register",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body:
+                                JSON.stringify({
+                                    facultyId,
+                                    fullName,
+                                    email,
+                                    department,
+                                    password:
+                                        password.value
+                                })
+                        }
+                    );
+                */
+
+
+                // Go to login page
+
+                window.location.href =
+                    "index.html";
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Faculty Dashboard | Smart Attendance</title>
+
+    <link rel="stylesheet" href="css/faculty.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION BAR
+    ========================== -->
+
+    <header class="dashboard-header">
+
+        <div class="brand">
+            <div class="brand-logo">SA</div>
+
+            <div>
+                <h2>Smart Attendance</h2>
+                <span>Faculty Portal</span>
+            </div>
+        </div>
+
+        <div class="faculty-profile">
+
+            <div class="profile-avatar">
+                F
+            </div>
+
+            <div class="profile-info">
+                <strong>Faculty</strong>
+                <span>Faculty ID: FAC001</span>
+            </div>
+
+            <button class="logout-button" onclick="logout()">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN DASHBOARD
+    ========================== -->
+
+    <main class="dashboard-container">
+
+        <!-- Welcome Section -->
+
+        <section class="welcome-section">
+
+            <div>
+                <p class="welcome-label">FACULTY DASHBOARD</p>
+
+                <h1>Welcome back, Faculty!</h1>
+
+                <p>
+                    Manage your classes, start attendance sessions,
+                    and monitor student attendance.
+                </p>
+            </div>
+
+            <div class="date-card">
+                <span>Today's Date</span>
+                <strong id="currentDate">16 August 2026</strong>
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             STATISTICS
+        ========================== -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📚
+                </div>
+
+                <div>
+                    <span>Total Classes</span>
+                    <h2>5</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ✓
+                </div>
+
+                <div>
+                    <span>Sessions Completed</span>
+                    <h2>24</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    👨‍🎓
+                </div>
+
+                <div>
+                    <span>Total Students</span>
+                    <h2>180</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    %
+                </div>
+
+                <div>
+                    <span>Average Attendance</span>
+                    <h2>87%</h2>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TODAY'S CLASSES
+        ========================== -->
+
+        <section class="classes-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Today's Classes</h2>
+                    <p>Start an attendance session for your class.</p>
+                </div>
+
+                <span class="class-count">
+                    2 Classes
+                </span>
+
+            </div>
+
+
+            <!-- CLASS CARD 1 -->
+
+            <div class="class-card">
+
+                <div class="class-main">
+
+                    <div class="subject-icon">
+                        DB
+                    </div>
+
+                    <div class="class-details">
+
+                        <h3>Database Management Systems</h3>
+
+                        <div class="class-meta">
+                            <span>🕐 10:00 AM - 11:00 AM</span>
+                            <span>📍 Room 301</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="start-button"
+                    onclick="startAttendance('Database Management Systems')">
+
+                    Start Attendance
+
+                </button>
+
+            </div>
+
+
+            <!-- CLASS CARD 2 -->
+
+            <div class="class-card">
+
+                <div class="class-main">
+
+                    <div class="subject-icon">
+                        CN
+                    </div>
+
+                    <div class="class-details">
+
+                        <h3>Computer Networks</h3>
+
+                        <div class="class-meta">
+                            <span>🕐 11:00 AM - 12:00 PM</span>
+                            <span>📍 Room 204</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="start-button"
+                    onclick="startAttendance('Computer Networks')">
+
+                    Start Attendance
+
+                </button>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             RECENT SESSIONS
+        ========================== -->
+
+        <section class="recent-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Recent Attendance Sessions</h2>
+                    <p>Your recently completed attendance sessions.</p>
+                </div>
+
+                <a href="report.html" class="view-report">
+                    View All Reports →
+                </a>
+
+            </div>
+
+
+            <div class="recent-table-container">
+
+                <table class="recent-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Subject</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Present</th>
+                            <th>Absent</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>Database Management Systems</td>
+                            <td>15 Aug 2026</td>
+                            <td>10:00 AM</td>
+                            <td>54</td>
+                            <td>6</td>
+
+                            <td>
+                                <span class="status completed">
+                                    Completed
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Computer Networks</td>
+                            <td>14 Aug 2026</td>
+                            <td>11:00 AM</td>
+                            <td>51</td>
+                            <td>9</td>
+
+                            <td>
+                                <span class="status completed">
+                                    Completed
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/faculty.js"></script>
+
+</body>
+
+</html>

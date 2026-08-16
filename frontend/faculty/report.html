@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance Report | Smart Attendance</title>
+
+    <link
+        rel="stylesheet"
+        href="css/faculty.css">
+
+
+    <!-- REPORT BUTTON STYLES -->
+
+    <style>
+
+        .report-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .download-button {
+            height: 40px;
+
+            padding: 0 16px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: #2563eb;
+            color: white;
+
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            white-space: nowrap;
+
+            transition: 0.2s;
+        }
+
+        .download-button:hover {
+            background: #1d4ed8;
+        }
+
+        @media (max-width: 600px) {
+
+            .report-actions {
+                width: 100%;
+
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+            .download-button {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="dashboard-header">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                SA
+            </div>
+
+            <div>
+
+                <h2>
+                    Smart Attendance
+                </h2>
+
+                <span>
+                    Faculty Portal
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="faculty-profile">
+
+            <div class="profile-avatar">
+                F
+            </div>
+
+            <div class="profile-info">
+
+                <strong>
+                    Faculty
+                </strong>
+
+                <span>
+                    Faculty ID: FAC001
+                </span>
+
+            </div>
+
+
+            <button
+                class="logout-button"
+                id="reportLogout">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="report-container">
+
+
+        <!-- BACK BUTTON -->
+
+        <a
+            href="dashboard.html"
+            class="back-button">
+
+            ← Back to Dashboard
+
+        </a>
+
+
+
+        <!-- =========================
+             REPORT HEADER
+        ========================== -->
+
+        <section class="report-heading">
+
+            <div>
+
+                <p class="welcome-label">
+                    ATTENDANCE REPORT
+                </p>
+
+                <h1>
+                    Attendance Overview
+                </h1>
+
+                <p>
+                    View student attendance and session
+                    performance.
+                </p>
+
+            </div>
+
+
+            <div class="report-course">
+
+                <strong>
+                    Database Management Systems
+                </strong>
+
+                <span>
+                    Academic Year 2026
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             SUMMARY CARDS
+        ========================== -->
+
+        <section class="report-summary">
+
+
+            <!-- TOTAL STUDENTS -->
+
+            <div class="report-stat-card">
+
+                <div class="report-stat-icon">
+                    👥
+                </div>
+
+                <div>
+
+                    <span>
+                        Total Students
+                    </span>
+
+                    <strong>
+                        60
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRESENT -->
+
+            <div class="report-stat-card">
+
+                <div class="report-stat-icon present-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <span>
+                        Present
+                    </span>
+
+                    <strong>
+                        54
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ABSENT -->
+
+            <div class="report-stat-card">
+
+                <div class="report-stat-icon absent-icon">
+                    !
+                </div>
+
+                <div>
+
+                    <span>
+                        Absent
+                    </span>
+
+                    <strong>
+                        6
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- AVERAGE ATTENDANCE -->
+
+            <div class="report-stat-card">
+
+                <div class="report-stat-icon percentage-icon">
+                    %
+                </div>
+
+                <div>
+
+                    <span>
+                        Average Attendance
+                    </span>
+
+                    <strong>
+                        90%
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             ATTENDANCE TREND
+        ========================== -->
+
+        <section class="report-chart-card">
+
+            <div class="report-section-header">
+
+                <div>
+
+                    <h2>
+                        Attendance Trend
+                    </h2>
+
+                    <p>
+                        Attendance percentage across recent
+                        class sessions.
+                    </p>
+
+                </div>
+
+
+                <div class="trend-badge">
+
+                    ● Last 7 Sessions
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-wrapper">
+
+                <canvas
+                    id="attendanceChart">
+                </canvas>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             STUDENT REPORT
+        ========================== -->
+
+        <section class="student-report-card">
+
+
+            <div class="report-section-header">
+
+                <div>
+
+                    <h2>
+                        Student Attendance
+                    </h2>
+
+                    <p>
+                        View individual attendance records.
+                    </p>
+
+                </div>
+
+
+                <!-- SEARCH + DOWNLOAD -->
+
+                <div class="report-actions">
+
+
+                    <!-- SEARCH -->
+
+                    <div class="student-search">
+
+                        <label
+                            for="studentSearch"
+                            class="sr-only">
+
+                            Search student
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="studentSearch"
+                            placeholder="Search student...">
+
+                    </div>
+
+
+                    <!-- DOWNLOAD EXCEL -->
+
+                    <button
+                        type="button"
+                        id="downloadExcel"
+                        class="download-button">
+
+                        ↓ Download Excel
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 STUDENT TABLE
+            ========================== -->
+
+            <div class="table-container">
+
+                <table id="attendanceTable">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Student ID
+                            </th>
+
+                            <th>
+                                Student Name
+                            </th>
+
+                            <th>
+                                Classes Attended
+                            </th>
+
+                            <th>
+                                Attendance
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="studentTableBody">
+
+
+                        <!-- STUDENT 1 -->
+
+                        <tr>
+
+                            <td>
+                                STU001
+                            </td>
+
+                            <td>
+                                Aarav Sharma
+                            </td>
+
+                            <td>
+                                18 / 20
+                            </td>
+
+                            <td>
+                                90%
+                            </td>
+
+                            <td>
+
+                                <span
+                                    class="status-badge present">
+
+                                    Present
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- STUDENT 2 -->
+
+                        <tr>
+
+                            <td>
+                                STU002
+                            </td>
+
+                            <td>
+                                Ananya Rao
+                            </td>
+
+                            <td>
+                                19 / 20
+                            </td>
+
+                            <td>
+                                95%
+                            </td>
+
+                            <td>
+
+                                <span
+                                    class="status-badge present">
+
+                                    Present
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- STUDENT 3 -->
+
+                        <tr>
+
+                            <td>
+                                STU003
+                            </td>
+
+                            <td>
+                                Rahul Kumar
+                            </td>
+
+                            <td>
+                                14 / 20
+                            </td>
+
+                            <td>
+                                70%
+                            </td>
+
+                            <td>
+
+                                <span
+                                    class="status-badge warning">
+
+                                    Low Attendance
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- STUDENT 4 -->
+
+                        <tr>
+
+                            <td>
+                                STU004
+                            </td>
+
+                            <td>
+                                Sneha Patil
+                            </td>
+
+                            <td>
+                                20 / 20
+                            </td>
+
+                            <td>
+                                100%
+                            </td>
+
+                            <td>
+
+                                <span
+                                    class="status-badge present">
+
+                                    Present
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- STUDENT 5 -->
+
+                        <tr>
+
+                            <td>
+                                STU005
+                            </td>
+
+                            <td>
+                                Rohan Desai
+                            </td>
+
+                            <td>
+                                11 / 20
+                            </td>
+
+                            <td>
+                                55%
+                            </td>
+
+                            <td>
+
+                                <span
+                                    class="status-badge absent">
+
+                                    Low Attendance
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- STUDENT 6 -->
+
+                        <tr>
+
+                            <td>
+                                STU006
+                            </td>
+
+                            <td>
+                                Priya Nair
+                            </td>
+
+                            <td>
+                                17 / 20
+                            </td>
+
+                            <td>
+                                85%
+                            </td>
+
+                            <td>
+
+                                <span
+                                    class="status-badge present">
+
+                                    Present
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         CHART.JS LIBRARY
+    ========================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js">
+    </script>
+
+
+
+    <!-- =========================
+         XLSX / EXCEL LIBRARY
+    ========================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js">
+    </script>
+
+
+
+    <!-- =========================
+         FACULTY JAVASCRIPT
+    ========================== -->
+
+    <script
+        src="js/faculty.js">
+    </script>
+
+
+
+    <!-- =========================
+         REPORT JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+
+        // =================================
+        // ATTENDANCE LINE GRAPH
+        // =================================
+
+        const chartCanvas =
+            document.getElementById(
+                "attendanceChart"
+            );
+
+
+        if (chartCanvas) {
+
+            new Chart(
+                chartCanvas,
+                {
+
+                    type: "line",
+
+                    data: {
+
+                        labels: [
+
+                            "Aug 10",
+                            "Aug 11",
+                            "Aug 12",
+                            "Aug 13",
+                            "Aug 14",
+                            "Aug 15",
+                            "Aug 16"
+
+                        ],
+
+
+                        datasets: [
+
+                            {
+
+                                label:
+                                    "Attendance %",
+
+
+                                data: [
+
+                                    82,
+                                    88,
+                                    85,
+                                    91,
+                                    87,
+                                    94,
+                                    90
+
+                                ],
+
+
+                                borderWidth: 3,
+
+                                tension: 0.35,
+
+                                fill: true,
+
+                                pointRadius: 5,
+
+                                pointHoverRadius: 7
+
+                            }
+
+                        ]
+
+                    },
+
+
+                    options: {
+
+                        responsive: true,
+
+                        maintainAspectRatio: false,
+
+
+                        scales: {
+
+                            y: {
+
+                                beginAtZero: true,
+
+                                max: 100,
+
+
+                                ticks: {
+
+                                    callback:
+                                        function(value) {
+
+                                            return value + "%";
+
+                                        }
+
+                                }
+
+                            }
+
+                        },
+
+
+                        plugins: {
+
+                            legend: {
+
+                                display: false
+
+                            },
+
+
+                            tooltip: {
+
+                                callbacks: {
+
+                                    label:
+                                        function(context) {
+
+                                            return (
+                                                " Attendance: " +
+                                                context.parsed.y +
+                                                "%"
+                                            );
+
+                                        }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+            );
+
+        }
+
+
+
+        // =================================
+        // STUDENT SEARCH
+        // =================================
+
+        const searchInput =
+            document.getElementById(
+                "studentSearch"
+            );
+
+
+        if (searchInput) {
+
+            searchInput.addEventListener(
+                "input",
+                function() {
+
+                    const searchValue =
+                        this.value
+                            .toLowerCase()
+                            .trim();
+
+
+                    const rows =
+                        document.querySelectorAll(
+                            "#studentTableBody tr"
+                        );
+
+
+                    rows.forEach(
+                        function(row) {
+
+                            const rowText =
+                                row.textContent
+                                    .toLowerCase();
+
+
+                            if (
+                                rowText.includes(
+                                    searchValue
+                                )
+                            ) {
+
+                                row.style.display =
+                                    "";
+
+                            }
+
+                            else {
+
+                                row.style.display =
+                                    "none";
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        // =================================
+        // DOWNLOAD ATTENDANCE AS EXCEL
+        // =================================
+
+        const downloadExcelButton =
+            document.getElementById(
+                "downloadExcel"
+            );
+
+
+        if (downloadExcelButton) {
+
+            downloadExcelButton.addEventListener(
+                "click",
+                function() {
+
+
+                    // Get all rows from table
+
+                    const rows =
+                        document.querySelectorAll(
+                            "#studentTableBody tr"
+                        );
+
+
+                    // Check whether there
+                    // are visible students
+
+                    let visibleRows = [];
+
+
+                    rows.forEach(
+                        function(row) {
+
+                            if (
+                                row.style.display !==
+                                "none"
+                            ) {
+
+                                visibleRows.push(row);
+
+                            }
+
+                        }
+                    );
+
+
+                    if (visibleRows.length === 0) {
+
+                        alert(
+                            "No student records to download."
+                        );
+
+                        return;
+
+                    }
+
+
+                    // Create a temporary table
+
+                    const exportTable =
+                        document.createElement(
+                            "table"
+                        );
+
+
+                    // Create table header
+
+                    const headerRow =
+                        document.createElement(
+                            "tr"
+                        );
+
+
+                    const headers = [
+
+                        "Student ID",
+                        "Student Name",
+                        "Classes Attended",
+                        "Attendance",
+                        "Status"
+
+                    ];
+
+
+                    headers.forEach(
+                        function(header) {
+
+                            const th =
+                                document.createElement(
+                                    "th"
+                                );
+
+                            th.textContent =
+                                header;
+
+                            headerRow.appendChild(th);
+
+                        }
+                    );
+
+
+                    exportTable.appendChild(
+                        headerRow
+                    );
+
+
+                    // Add visible student rows
+
+                    visibleRows.forEach(
+                        function(row) {
+
+                            const cells =
+                                row.querySelectorAll(
+                                    "td"
+                                );
+
+
+                            const newRow =
+                                document.createElement(
+                                    "tr"
+                                );
+
+
+                            cells.forEach(
+                                function(cell) {
+
+                                    const newCell =
+                                        document.createElement(
+                                            "td"
+                                        );
+
+
+                                    newCell.textContent =
+                                        cell.textContent
+                                            .trim();
+
+
+                                    newRow.appendChild(
+                                        newCell
+                                    );
+
+                                }
+                            );
+
+
+                            exportTable.appendChild(
+                                newRow
+                            );
+
+                        }
+                    );
+
+
+                    // Convert table to Excel worksheet
+
+                    const worksheet =
+                        XLSX.utils.table_to_sheet(
+                            exportTable
+                        );
+
+
+                    // Create workbook
+
+                    const workbook =
+                        XLSX.utils.book_new();
+
+
+                    // Add worksheet
+
+                    XLSX.utils.book_append_sheet(
+                        workbook,
+                        worksheet,
+                        "Attendance"
+                    );
+
+
+                    // Download file
+
+                    XLSX.writeFile(
+                        workbook,
+                        "Student_Attendance_Report.xlsx"
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        // =================================
+        // LOGOUT
+        // =================================
+
+        const reportLogout =
+            document.getElementById(
+                "reportLogout"
+            );
+
+
+        if (reportLogout) {
+
+            reportLogout.addEventListener(
+                "click",
+                function() {
+
+                    logout();
+
+                }
+            );
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
