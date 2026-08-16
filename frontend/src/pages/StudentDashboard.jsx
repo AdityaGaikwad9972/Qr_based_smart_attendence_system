@@ -1,7 +1,12 @@
 import React from "react";
 import "./StudentDashboard.css";
 
-function StudentDashboard({ onLogout, onMarkAttendance }) {
+function StudentDashboard({
+  onLogout,
+  onMarkAttendance,
+  onAttendanceHistory,
+  onProfile,
+}) {
   const attendanceData = [
     {
       date: "16 Aug 2026",
@@ -38,36 +43,27 @@ function StudentDashboard({ onLogout, onMarkAttendance }) {
   return (
     <div className="dashboard-page">
 
-      {/* ================= HEADER ================= */}
-
+      {/* Header */}
       <header className="dashboard-header">
 
         <div className="dashboard-brand">
-
-          <div className="dashboard-a">
-            A
-          </div>
+          <div className="dashboard-a">A</div>
 
           <div>
             <h2>Smart Attendance</h2>
             <span>Student Portal</span>
           </div>
-
         </div>
 
         <div className="student-header">
 
           <div className="student-info">
-
-            <div className="student-avatar">
-              S
-            </div>
+            <div className="student-avatar">S</div>
 
             <div>
               <strong>Student</strong>
               <span>Student ID: AIT2026001</span>
             </div>
-
           </div>
 
           <button
@@ -81,187 +77,97 @@ function StudentDashboard({ onLogout, onMarkAttendance }) {
 
       </header>
 
-
-      {/* ================= MAIN CONTENT ================= */}
-
+      {/* Main Content */}
       <main className="dashboard-container">
 
-
-        {/* ================= WELCOME SECTION ================= */}
-
+        {/* Welcome Section */}
         <section className="welcome-section">
 
           <div>
-
-            <p className="welcome-small">
-              WELCOME BACK
-            </p>
+            <p className="welcome-small">WELCOME BACK</p>
 
             <h1>
               Hello, <span>Student!</span>
             </h1>
 
             <p className="welcome-description">
-              Here's your attendance overview and recent
-              attendance activity.
+              Here's your attendance overview and recent attendance activity.
             </p>
-
           </div>
 
-
           <div className="college-badge">
-
-            <strong>
-              Acharya Institute of Technology
-            </strong>
-
-            <span>
-              Student Attendance Management System
-            </span>
-
+            <strong>Acharya Institute of Technology</strong>
+            <span>Student Attendance Management System</span>
           </div>
 
         </section>
 
-
-        {/* ================= STATISTICS ================= */}
-
+        {/* Statistics */}
         <section className="stats-grid">
-
-
-          {/* Overall Attendance */}
 
           <div className="stat-card attendance-card">
 
-            <div className="stat-icon">
-              %
-            </div>
+            <div className="stat-icon">%</div>
 
             <div>
-
-              <p>
-                Overall Attendance
-              </p>
-
-              <h2>
-                87%
-              </h2>
-
+              <p>Overall Attendance</p>
+              <h2>87%</h2>
               <span className="positive-text">
                 Good attendance
               </span>
-
             </div>
 
           </div>
 
-
-          {/* Classes Present */}
-
           <div className="stat-card">
 
-            <div className="stat-icon green">
-              ✓
-            </div>
+            <div className="stat-icon green">✓</div>
 
             <div>
-
-              <p>
-                Classes Present
-              </p>
-
-              <h2>
-                26
-              </h2>
-
-              <span>
-                Out of 30 classes
-              </span>
-
+              <p>Classes Present</p>
+              <h2>26</h2>
+              <span>Out of 30 classes</span>
             </div>
 
           </div>
 
-
-          {/* Classes Absent */}
-
           <div className="stat-card">
 
-            <div className="stat-icon red">
-              !
-            </div>
+            <div className="stat-icon red">!</div>
 
             <div>
-
-              <p>
-                Classes Absent
-              </p>
-
-              <h2>
-                4
-              </h2>
-
-              <span>
-                Out of 30 classes
-              </span>
-
+              <p>Classes Absent</p>
+              <h2>4</h2>
+              <span>Out of 30 classes</span>
             </div>
 
           </div>
 
-
-          {/* Current Streak */}
-
           <div className="stat-card">
 
-            <div className="stat-icon orange">
-              ↗
-            </div>
+            <div className="stat-icon orange">↗</div>
 
             <div>
-
-              <p>
-                Current Streak
-              </p>
-
-              <h2>
-                5
-              </h2>
-
-              <span>
-                Days present
-              </span>
-
+              <p>Current Streak</p>
+              <h2>5</h2>
+              <span>Days present</span>
             </div>
 
           </div>
 
         </section>
 
-
-        {/* ================= QUICK ACTIONS ================= */}
-
+        {/* Action Cards */}
         <section className="action-section">
 
-
           <div className="section-heading">
-
-            <h2>
-              Quick Actions
-            </h2>
-
-            <p>
-              Access your attendance features
-            </p>
-
+            <h2>Quick Actions</h2>
+            <p>Access your attendance features</p>
           </div>
-
 
           <div className="action-grid">
 
-
             {/* MARK ATTENDANCE */}
-
             <button
               className="action-card"
               onClick={onMarkAttendance}
@@ -272,29 +178,19 @@ function StudentDashboard({ onLogout, onMarkAttendance }) {
               </div>
 
               <div>
-
-                <h3>
-                  Mark Attendance
-                </h3>
-
-                <p>
-                  Scan the classroom QR code
-                </p>
-
+                <h3>Mark Attendance</h3>
+                <p>Scan the classroom QR code</p>
               </div>
 
-              <span className="action-arrow">
-                →
-              </span>
+              <span className="action-arrow">→</span>
 
             </button>
 
 
             {/* ATTENDANCE HISTORY */}
-
             <button
               className="action-card"
-              type="button"
+              onClick={onAttendanceHistory}
             >
 
               <div className="action-icon history-icon">
@@ -302,29 +198,19 @@ function StudentDashboard({ onLogout, onMarkAttendance }) {
               </div>
 
               <div>
-
-                <h3>
-                  Attendance History
-                </h3>
-
-                <p>
-                  View your complete attendance
-                </p>
-
+                <h3>Attendance History</h3>
+                <p>View your complete attendance</p>
               </div>
 
-              <span className="action-arrow">
-                →
-              </span>
+              <span className="action-arrow">→</span>
 
             </button>
 
 
-            {/* PROFILE */}
-
+            {/* MY PROFILE */}
             <button
               className="action-card"
-              type="button"
+              onClick={onProfile}
             >
 
               <div className="action-icon profile-icon">
@@ -332,20 +218,11 @@ function StudentDashboard({ onLogout, onMarkAttendance }) {
               </div>
 
               <div>
-
-                <h3>
-                  My Profile
-                </h3>
-
-                <p>
-                  View your student information
-                </p>
-
+                <h3>My Profile</h3>
+                <p>View your student information</p>
               </div>
 
-              <span className="action-arrow">
-                →
-              </span>
+              <span className="action-arrow">→</span>
 
             </button>
 
@@ -353,118 +230,70 @@ function StudentDashboard({ onLogout, onMarkAttendance }) {
 
         </section>
 
-
-        {/* ================= LOWER SECTION ================= */}
-
+        {/* Attendance + Summary */}
         <section className="dashboard-lower">
 
-
-          {/* ================= RECENT ATTENDANCE ================= */}
-
+          {/* Recent Attendance */}
           <div className="attendance-table-card">
-
 
             <div className="table-header">
 
               <div>
-
-                <h2>
-                  Recent Attendance
-                </h2>
-
-                <p>
-                  Your latest attendance records
-                </p>
-
+                <h2>Recent Attendance</h2>
+                <p>Your latest attendance records</p>
               </div>
 
               <button
                 className="view-all-btn"
-                type="button"
+                onClick={onAttendanceHistory}
               >
                 View All
               </button>
 
             </div>
 
-
             <div className="table-wrapper">
 
               <table>
 
                 <thead>
-
                   <tr>
-
-                    <th>
-                      Date
-                    </th>
-
-                    <th>
-                      Subject
-                    </th>
-
-                    <th>
-                      Time
-                    </th>
-
-                    <th>
-                      Status
-                    </th>
-
+                    <th>Date</th>
+                    <th>Subject</th>
+                    <th>Time</th>
+                    <th>Status</th>
                   </tr>
-
                 </thead>
-
 
                 <tbody>
 
-                  {attendanceData.map(
-                    (record, index) => (
+                  {attendanceData.map((record, index) => (
+                    <tr key={index}>
 
-                      <tr key={index}>
+                      <td>{record.date}</td>
 
-                        <td>
-                          {record.date}
-                        </td>
+                      <td>
+                        <strong>{record.subject}</strong>
+                      </td>
 
-                        <td>
-                          <strong>
-                            {record.subject}
-                          </strong>
-                        </td>
+                      <td>{record.time}</td>
 
-                        <td>
-                          {record.time}
-                        </td>
+                      <td>
+                        <span
+                          className={
+                            record.status === "Present"
+                              ? "status present"
+                              : "status absent"
+                          }
+                        >
+                          {record.status === "Present" ? "✓" : "!"}
+                          {" "}
+                          {record.status}
+                        </span>
+                      </td>
 
-                        <td>
-
-                          <span
-                            className={
-                              record.status === "Present"
-                                ? "status present"
-                                : "status absent"
-                            }
-                          >
-
-                            {record.status === "Present"
-                              ? "✓"
-                              : "!"
-                            }
-
-                            {" "}
-
-                            {record.status}
-
-                          </span>
-
-                        </td>
-
-                      </tr>
-
-                    )
-                  )}
+                    </tr>
+                  ))}
 
                 </tbody>
 
@@ -475,93 +304,44 @@ function StudentDashboard({ onLogout, onMarkAttendance }) {
           </div>
 
 
-          {/* ================= ATTENDANCE SUMMARY ================= */}
-
+          {/* Attendance Summary */}
           <div className="summary-card">
 
-
             <div className="summary-header">
-
-              <h2>
-                Attendance Summary
-              </h2>
-
-              <span>
-                2026
-              </span>
-
+              <h2>Attendance Summary</h2>
+              <span>2026</span>
             </div>
-
-
-            {/* Attendance Circle */}
 
             <div className="attendance-circle">
 
               <div className="circle-inner">
-
-                <strong>
-                  87%
-                </strong>
-
-                <span>
-                  Attendance
-                </span>
-
+                <strong>87%</strong>
+                <span>Attendance</span>
               </div>
 
             </div>
-
-
-            {/* Summary Details */}
 
             <div className="summary-details">
 
-
               <div>
-
                 <span className="summary-dot present-dot"></span>
-
-                <span>
-                  Present
-                </span>
-
-                <strong>
-                  26
-                </strong>
-
+                <span>Present</span>
+                <strong>26</strong>
               </div>
 
-
               <div>
-
                 <span className="summary-dot absent-dot"></span>
-
-                <span>
-                  Absent
-                </span>
-
-                <strong>
-                  4
-                </strong>
-
+                <span>Absent</span>
+                <strong>4</strong>
               </div>
 
             </div>
 
-
-            {/* Attendance Message */}
-
             <div className="attendance-message">
-
-              <strong>
-                You're doing well!
-              </strong>
-
+              <strong>You're doing well!</strong>
               <p>
-                Maintain your attendance above 75%
-                to stay eligible for exams.
+                Maintain your attendance above 75% to stay eligible for exams.
               </p>
-
             </div>
 
           </div>
@@ -570,19 +350,10 @@ function StudentDashboard({ onLogout, onMarkAttendance }) {
 
       </main>
 
-
-      {/* ================= FOOTER ================= */}
-
+      {/* Footer */}
       <footer className="dashboard-footer">
-
-        <strong>
-          Acharya Institute of Technology
-        </strong>
-
-        <span>
-          Smart Attendance Management System
-        </span>
-
+        <strong>Acharya Institute of Technology</strong>
+        <span>Smart Attendance Management System</span>
       </footer>
 
     </div>
