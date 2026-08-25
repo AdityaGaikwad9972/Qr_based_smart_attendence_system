@@ -1,11 +1,19 @@
 import { useState } from "react";
+import { authAPI } from "../services/api";
 import "../App.css";
 
-function StudentLogin({ onLogin }) {
-
+function StudentLogin({
+  onLogin,
+  onSwitchToFaculty,
+  onSwitchToAdmin,
+  onSwitchRole,
+  onNavigateToSignup,
+}) {
   const [studentId, setStudentId] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   // Page state
   const [authPage, setAuthPage] = useState("login");
@@ -28,16 +36,21 @@ function StudentLogin({ onLogin }) {
   /*
    * LOGIN
    */
-  const handleLogin = (e) => {
-
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setErrorMessage("");
+    setIsLoading(true);
 
-    console.log("Student ID:", studentId);
-    console.log("Password:", password);
-
-    // Temporary login
-    // Later connect this with backend API
-    onLogin();
+    try {
+      const res = await authAPI.login(studentId, password, "student");
+      setIsLoading(false);
+      const userObj = res.user || { identifier: studentId, role: "student", name: "Student" };
+      localStorage.setItem("currentUser", JSON.stringify(userObj));
+      onLogin(userObj);
+    } catch (err) {
+      setIsLoading(false);
+      setErrorMessage(err.message || "Invalid credentials. Please check your USN and password.");
+    }
   };
 
 
@@ -778,13 +791,31 @@ function StudentLogin({ onLogin }) {
             </div>
 
 
-            {/* LOGIN */}
+            {/* ERROR MESSAGE */}
+            {errorMessage && (
+              <div
+                style={{
+                  color: "#dc2626",
+                  background: "#fef2f2",
+                  padding: "10px 14px",
+                  borderRadius: "8px",
+                  fontSize: "13px",
+                  marginBottom: "14px",
+                  border: "1px solid #fecaca",
+                  fontWeight: "600",
+                }}
+              >
+                ⚠️ {errorMessage}
+              </div>
+            )}
 
+            {/* LOGIN */}
             <button
               type="submit"
               className="login-button"
+              disabled={isLoading}
             >
-              Login
+              {isLoading ? "Authenticating..." : "Login"}
             </button>
 
 
@@ -799,13 +830,72 @@ function StudentLogin({ onLogin }) {
               <button
                 type="button"
                 className="signup-button"
-                onClick={() =>
-                  setAuthPage("signup")
-                }
+                onClick={() => {
+                  if (typeof onNavigateToSignup === "function") {
+                    onNavigateToSignup();
+                  } else {
+                    setAuthPage("signup");
+                  }
+                }}
               >
                 Sign Up
               </button>
 
+            </div>
+
+            <div
+              style={{
+                marginTop: "18px",
+                paddingTop: "14px",
+                borderTop: "1px solid #edf0f5",
+                display: "flex",
+                justifyContent: "center",
+                gap: "18px",
+                fontSize: "13px",
+                color: "#6b7280",
+              }}
+            >
+              <button
+                type="button"
+                onClick={() => {
+                  if (typeof onSwitchToFaculty === "function") {
+                    onSwitchToFaculty();
+                  } else if (typeof onSwitchRole === "function") {
+                    onSwitchRole("faculty");
+                  }
+                }}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "#2563eb",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  fontFamily: "inherit",
+                }}
+              >
+                👨‍🏫 Faculty Portal
+              </button>
+              <span>•</span>
+              <button
+                type="button"
+                onClick={() => {
+                  if (typeof onSwitchToAdmin === "function") {
+                    onSwitchToAdmin();
+                  } else if (typeof onSwitchRole === "function") {
+                    onSwitchRole("admin");
+                  }
+                }}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "#2563eb",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  fontFamily: "inherit",
+                }}
+              >
+                🛡️ Admin Portal
+              </button>
             </div>
 
           </form>

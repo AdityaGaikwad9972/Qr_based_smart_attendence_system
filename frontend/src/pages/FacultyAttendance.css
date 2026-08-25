@@ -1,0 +1,495 @@
+/* =========================================================
+   SMART ATTENDANCE - FACULTY ATTENDANCE SESSION STYLES
+   ========================================================= */
+
+.faculty-attendance-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #172033;
+}
+
+/* =================================
+   HEADER
+================================= */
+
+.fac-att-header {
+  min-height: 76px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+/* =================================
+   CONTAINER
+================================= */
+
+.fac-attendance-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 35px 25px 60px;
+}
+
+.fac-back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 25px;
+  color: #2563eb;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.fac-back-button:hover {
+  color: #1d4ed8;
+  transform: translateX(-2px);
+}
+
+/* =================================
+   ATTENDANCE HEADING
+================================= */
+
+.fac-attendance-heading {
+  margin-bottom: 25px;
+}
+
+.fac-attendance-heading h1 {
+  color: #111827;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.fac-attendance-heading p {
+  color: #6b7280;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* =================================
+   CLASS INFORMATION CARD
+================================= */
+
+.fac-attendance-class-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.02);
+}
+
+.fac-subject-icon-large {
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef2ff;
+  color: #4f46e5;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.fac-attendance-class-info {
+  flex: 1;
+}
+
+.fac-attendance-class-info h2 {
+  color: #111827;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+
+.fac-class-meta-row {
+  display: flex;
+  gap: 20px;
+  color: #6b7280;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+.fac-session-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.fac-session-status.active {
+  color: #15803d;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.fac-session-status.expired {
+  color: #6b7280;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+}
+
+/* =================================
+   QR SECTION & CARD
+================================= */
+
+.fac-qr-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.fac-qr-card {
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 35px 30px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.fac-qr-header h2 {
+  color: #111827;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.fac-qr-header p {
+  color: #6b7280;
+  font-size: 13.5px;
+  margin: 0 0 25px 0;
+}
+
+/* =================================
+   QR CODE CONTAINER
+================================= */
+
+.fac-qr-code-container {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto 25px;
+  padding: 15px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+.fac-qr-expired-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #f9fafb;
+  border: 2px dashed #d1d5db;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #9ca3af;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.fac-qr-expired-icon {
+  font-size: 28px;
+  color: #ef4444;
+}
+
+/* =================================
+   TIMER
+================================= */
+
+.fac-timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.fac-timer-label {
+  color: #6b7280;
+  font-size: 13px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.fac-timer {
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.3s ease;
+}
+
+.fac-timer.normal {
+  color: #2563eb;
+}
+
+.fac-timer.warning {
+  color: #ea580c;
+}
+
+.fac-timer.critical {
+  color: #dc2626;
+  animation: facPulse 1s infinite;
+}
+
+@keyframes facPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.fac-timer-unit {
+  color: #6b7280;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.fac-progress-bar-wrap {
+  width: 200px;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.fac-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #4f46e5);
+  border-radius: 10px;
+  transition: width 1s linear, background-color 0.3s ease;
+}
+
+.fac-progress-bar.warning {
+  background: #ea580c;
+}
+
+.fac-progress-bar.critical {
+  background: #dc2626;
+}
+
+/* =================================
+   ACTIVE MESSAGE
+================================= */
+
+.fac-active-message {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #15803d;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 10px 18px;
+  margin-bottom: 22px;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.fac-active-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3);
+  animation: facPulseDot 1.5s infinite;
+}
+
+@keyframes facPulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+/* =================================
+   EXPIRED MESSAGE
+================================= */
+
+.fac-expired-message {
+  padding: 15px 10px;
+  margin-bottom: 10px;
+}
+
+.fac-expired-icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fef2f2;
+  color: #dc2626;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.fac-expired-message h3 {
+  color: #111827;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+
+.fac-expired-message p {
+  color: #6b7280;
+  font-size: 13.5px;
+  margin: 0 0 20px 0;
+}
+
+.fac-generate-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+  font-family: inherit;
+}
+
+.fac-generate-button:hover {
+  background: linear-gradient(135deg, #1d4ed8, #4338ca);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+/* =================================
+   STOP BUTTON
+================================= */
+
+.fac-stop-button {
+  width: 100%;
+  height: 48px;
+  border: 1px solid #fecaca;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #dc2626;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.fac-stop-button:hover {
+  background: #fef2f2;
+  border-color: #fca5a5;
+}
+
+/* =================================
+   INFORMATION CARDS
+================================= */
+
+.fac-attendance-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.fac-info-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 13px;
+  padding: 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02);
+}
+
+.fac-info-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef2ff;
+  color: #4f46e5;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.fac-info-card h3 {
+  color: #111827;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+}
+
+.fac-info-card p {
+  color: #6b7280;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 800px) {
+  .fac-attendance-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fac-attendance-class-card {
+    flex-wrap: wrap;
+  }
+
+  .fac-attendance-class-card .fac-session-status {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .fac-attendance-container {
+    padding: 25px 15px 40px;
+  }
+
+  .fac-qr-card {
+    padding: 25px 18px;
+  }
+
+  .fac-qr-code-container {
+    width: 220px;
+    height: 220px;
+  }
+}

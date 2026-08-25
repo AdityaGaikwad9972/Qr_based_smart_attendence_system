@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body,
 #root {
@@ -5,14 +11,26 @@ body,
   padding: 0;
   width: 100%;
   min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
+
+button {
+  touch-action: manipulation;
+}
+

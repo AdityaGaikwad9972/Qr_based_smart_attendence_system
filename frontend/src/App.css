@@ -1088,11 +1088,64 @@ body {
 }
 
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE (MOBILE & TABLET OPTIMIZATIONS)
    ========================================================= */
 
-@media (max-width: 800px) {
+@media (max-width: 950px) {
+  .login-page {
+    padding: 30px 16px;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
 
+  .login-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 10px 0;
+    min-height: auto;
+  }
+
+  .login-info {
+    padding-left: 0;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .login-info .a-badge {
+    margin: 0 auto 16px;
+    width: 64px;
+    height: 64px;
+    font-size: 34px;
+    border-radius: 15px;
+  }
+
+  .login-info h1 {
+    font-size: 32px;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+
+  .login-info .description {
+    font-size: 15px;
+    margin-bottom: 18px;
+    max-width: 100%;
+  }
+
+  .login-info .features {
+    display: none;
+  }
+
+  .login-card {
+    padding: 32px 28px 28px;
+    border-radius: 22px;
+    box-shadow: 0 15px 45px rgba(20, 30, 60, 0.12);
+  }
+}
+
+@media (max-width: 800px) {
   .history-summary {
     grid-template-columns: 1fr 1fr;
   }
@@ -1102,19 +1155,79 @@ body {
   }
 
   .simple-page {
-    padding: 25px 4%;
+    padding: 20px 14px;
   }
-
 }
 
-@media (max-width: 500px) {
+@media (max-width: 480px) {
+  .login-page {
+    padding: 20px 12px;
+  }
+
+  .login-container {
+    max-width: 100%;
+    padding: 5px 0;
+  }
+
+  .login-info h1 {
+    font-size: 26px;
+    letter-spacing: -0.5px;
+  }
+
+  .login-info .description {
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .login-card {
+    padding: 24px 18px 22px;
+    border-radius: 18px;
+  }
+
+  .card-a {
+    width: 58px;
+    height: 58px;
+    font-size: 30px;
+    border-radius: 15px;
+    margin-bottom: 16px;
+  }
+
+  .login-card h2 {
+    font-size: 23px;
+  }
+
+  .login-subtitle {
+    font-size: 13.5px;
+    margin-bottom: 22px;
+  }
+
+  .input-wrapper {
+    height: 52px;
+  }
+
+  .input-wrapper input {
+    font-size: 16px; /* Prevents auto-zoom in iOS Safari */
+  }
+
+  .login-button {
+    height: 52px;
+    font-size: 16px;
+  }
 
   .history-summary {
     grid-template-columns: 1fr;
   }
 
   .simple-page-card {
-    padding: 22px;
+    padding: 18px 14px;
+    border-radius: 14px;
   }
 
-}
+  .card-footer strong {
+    font-size: 12px;
+  }
+
+  .card-footer span {
+    font-size: 10.5px;
+  }
+}

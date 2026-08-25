@@ -1,0 +1,26 @@
+{
+  "name": "smart-attendance-backend",
+  "version": "1.0.0",
+  "description": "Node.js & Express backend for QR Based Smart Attendance System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test test_server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "keywords": [
+    "express",
+    "smart-attendance",
+    "sqlite",
+    "biometrics",
+    "face-recognition"
+  ],
+  "author": "",
+  "license": "ISC"
+}

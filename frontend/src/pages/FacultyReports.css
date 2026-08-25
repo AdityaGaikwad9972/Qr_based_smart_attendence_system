@@ -1,0 +1,557 @@
+/* =========================================================
+   SMART ATTENDANCE - FACULTY STUDENT ATTENDANCE REPORT STYLES
+   ========================================================= */
+
+.faculty-reports-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #172033;
+}
+
+/* =================================
+   HEADER
+================================= */
+
+.fac-rep-header {
+  min-height: 76px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.fac-rep-container {
+  max-width: 1250px;
+  margin: auto;
+  padding: 35px 25px 60px;
+}
+
+/* =================================
+   NAVIGATION & HEADING
+================================= */
+
+.fac-back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 25px;
+  color: #2563eb;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.fac-back-button:hover {
+  color: #1d4ed8;
+  transform: translateX(-2px);
+}
+
+.fac-rep-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.fac-welcome-label {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+}
+
+.fac-rep-heading h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 6px 0;
+}
+
+.fac-rep-heading p {
+  color: #6b7280;
+  font-size: 14px;
+  margin: 0;
+}
+
+.fac-rep-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.fac-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+}
+
+.fac-download-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+  background: linear-gradient(135deg, #1d4ed8, #4338ca);
+}
+
+.fac-print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: #ffffff;
+  color: #374151;
+  border: 1.5px solid #d1d5db;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.fac-print-btn:hover {
+  background: #f8fafc;
+  border-color: #9ca3af;
+  color: #111827;
+}
+
+/* =================================
+   SUBJECT TABS
+================================= */
+
+.fac-subject-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.fac-subject-tab {
+  padding: 10px 18px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  color: #4b5563;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fac-subject-tab:hover {
+  border-color: #cbd5e1;
+  color: #1e293b;
+}
+
+.fac-subject-tab.active {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+/* =================================
+   METRICS SUMMARY
+================================= */
+
+.fac-rep-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+.fac-rep-metric-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02);
+}
+
+.fac-rep-metric-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.fac-rep-metric-icon.students {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.fac-rep-metric-icon.attendance {
+  background: #f5f3ff;
+  color: #7c3aed;
+}
+
+.fac-rep-metric-icon.eligible {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.fac-rep-metric-icon.shortage {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.fac-rep-metric-card span {
+  display: block;
+  color: #6b7280;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.fac-rep-metric-card strong {
+  color: #111827;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* =================================
+   CARD & FILTERS BAR
+================================= */
+
+.fac-rep-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+}
+
+.fac-rep-toolbar {
+  padding: 20px 24px;
+  border-bottom: 1px solid #edf0f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.fac-rep-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.fac-rep-search {
+  position: relative;
+  min-width: 280px;
+  max-width: 380px;
+  flex: 1;
+}
+
+.fac-rep-search-input {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px 0 38px;
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+  font-size: 13.5px;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.fac-rep-search-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.fac-rep-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.fac-rep-filter-select {
+  height: 42px;
+  padding: 0 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+  background: white;
+  font-size: 13.5px;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  color: #374151;
+  font-weight: 500;
+}
+
+.fac-rep-count-badge {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* =================================
+   STUDENT TABLE
+================================= */
+
+.fac-rep-table-container {
+  overflow-x: auto;
+}
+
+.fac-rep-student-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+.fac-rep-student-table th {
+  background: #f8fafc;
+  color: #6b7280;
+  text-align: left;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  font-weight: 700;
+}
+
+.fac-rep-student-table td {
+  padding: 16px 20px;
+  color: #374151;
+  font-size: 13.5px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.fac-rep-student-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.fac-rep-student-table tbody tr:hover {
+  background: #fafbfc;
+}
+
+.fac-student-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fac-student-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #eff6ff;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13.5px;
+  flex-shrink: 0;
+}
+
+.fac-student-info strong {
+  display: block;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.fac-student-info span {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.fac-code-badge {
+  background: #e0e7ff;
+  color: #3730a3;
+  padding: 4px 9px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 12px;
+  display: inline-block;
+}
+
+/* Percentage Bar & Pill */
+.fac-pct-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fac-mini-progress {
+  width: 70px;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.fac-mini-progress-fill {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.fac-mini-progress-fill.high {
+  background: #16a34a;
+}
+
+.fac-mini-progress-fill.medium {
+  background: #ea580c;
+}
+
+.fac-mini-progress-fill.low {
+  background: #dc2626;
+}
+
+.fac-pct-pill {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.fac-pct-pill.high {
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.fac-pct-pill.medium {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.fac-pct-pill.low {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* Status Badges */
+.fac-eligibility-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.fac-eligibility-badge.eligible {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+
+.fac-eligibility-badge.shortage {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+/* =================================
+   PRINT / PDF OPTIMIZATION
+================================= */
+
+@media print {
+  body {
+    background: white !important;
+  }
+
+  .fac-rep-header,
+  .fac-back-button,
+  .fac-rep-actions,
+  .fac-subject-tabs,
+  .fac-rep-toolbar {
+    display: none !important;
+  }
+
+  .fac-rep-container {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .fac-rep-card {
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+  }
+
+  .fac-rep-student-table th {
+    background: #eee !important;
+    color: black !important;
+  }
+}
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 950px) {
+  .fac-rep-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .fac-rep-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fac-rep-container {
+    padding: 25px 15px 40px;
+  }
+
+  .fac-rep-search {
+    min-width: 100%;
+  }
+
+  .fac-rep-filter-select {
+    width: 100%;
+  }
+}

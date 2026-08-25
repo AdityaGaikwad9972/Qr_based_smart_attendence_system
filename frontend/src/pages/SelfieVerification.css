@@ -1,17 +1,27 @@
+/* =========================================================
+   SMART ATTENDANCE - SELFIE VERIFICATION & ML BIOMETRICS STYLES
+   ========================================================= */
+
 .selfie-page {
   min-height: 100vh;
   background: #f7f8fc;
   color: #17213a;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+/* =================================
+   HEADER
+================================= */
+
 .selfie-header {
-  height: 72px;
-  background: white;
+  height: 76px;
+  background: #ffffff;
   border-bottom: 1px solid #e5e7ef;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 6%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
 }
 
 .selfie-brand {
@@ -24,78 +34,105 @@
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: #7045e8;
+  background: linear-gradient(135deg, #7045e8, #4f46e5);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 25px;
+  font-size: 24px;
   font-weight: 800;
+  box-shadow: 0 4px 12px rgba(112, 69, 232, 0.25);
 }
 
 .selfie-brand h2 {
-  margin: 0;
+  margin: 0 0 2px 0;
   font-size: 18px;
+  font-weight: 700;
+  color: #111827;
 }
 
 .selfie-brand span {
   color: #8791aa;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .selfie-back-btn {
-  background: white;
+  background: #ffffff;
   border: 1px solid #dfe3ed;
   border-radius: 9px;
-  padding: 10px 18px;
+  padding: 9px 18px;
   cursor: pointer;
   color: #39466a;
+  font-weight: 600;
+  font-size: 13.5px;
+  font-family: inherit;
+  transition: all 0.2s ease;
 }
 
+.selfie-back-btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateX(-2px);
+}
+
+/* =================================
+   CONTAINER & TITLES
+================================= */
+
 .selfie-container {
-  width: 1100px;
-  max-width: 90%;
+  max-width: 1100px;
   margin: auto;
-  padding: 55px 0;
+  padding: 40px 20px 60px;
 }
 
 .selfie-title {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
 
 .selfie-title p {
   color: #7045e8;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 2px;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
 }
 
 .selfie-title h1 {
-  font-size: 36px;
-  margin: 10px 0;
+  font-size: 32px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 8px 0;
 }
 
 .selfie-title span {
-  color: #7d89a5;
+  color: #6b7280;
+  font-size: 14px;
 }
+
+/* =================================
+   CONTENT GRID
+================================= */
 
 .selfie-content {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 25px;
+  align-items: start;
 }
 
 .selfie-card,
-.verification-card {
-  background: white;
-  border: 1px solid #e4e7ef;
+.selfie-verification-card {
+  background: #ffffff;
+  border: 1px solid #e5e7ef;
   border-radius: 18px;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
 }
 
 .selfie-card-header {
-  padding: 22px;
+  padding: 20px 24px;
   border-bottom: 1px solid #edf0f5;
   display: flex;
   justify-content: space-between;
@@ -104,147 +141,979 @@
 
 .selfie-card-header h2 {
   margin: 0;
-  font-size: 18px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #111827;
 }
 
-.selfie-status {
-  background: #f1f2f6;
-  color: #777f94;
-  padding: 7px 13px;
+.selfie-status-pill {
+  padding: 5px 12px;
   border-radius: 20px;
   font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.selfie-status.live {
-  background: #e7f9ef;
-  color: #1c9b5a;
+.selfie-status-pill.live {
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
 }
+
+.selfie-status-pill.off {
+  background: #f3f4f6;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+}
+
+.selfie-status-pill.verifying {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+  animation: pulseVerifying 1.5s infinite ease-in-out;
+}
+
+.selfie-status-pill.verified {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+.selfie-status-pill.failed {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+@keyframes pulseVerifying {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.65; }
+}
+
+/* =================================
+   CAMERA AREA & VIEWFINDER
+================================= */
 
 .selfie-camera-area {
-  padding: 28px;
-  text-align: center;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .selfie-camera-frame {
-  height: 430px;
-  background: #171717;
-  border-radius: 15px;
+  width: 100%;
+  max-width: 460px;
+  height: 380px;
+  background: #0f172a;
+  border-radius: 16px;
   overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Camera feed mirrored for natural selfie */
+.selfie-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.selfie-video.unmirrored {
+  transform: scaleX(1);
+}
+
+.selfie-captured-wrap {
+  width: 100%;
+  height: 100%;
   position: relative;
 }
 
-.selfie-video {
+/* Captured Preview */
+.selfie-preview {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.face-frame {
-  position: absolute;
-  width: 210px;
-  height: 270px;
-  border: 3px solid rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
+/* =================================
+   AI LASER SCANNING OVERLAY
+================================= */
 
-.selfie-instruction {
-  color: #7d89a5;
-  margin: 18px 0;
-}
-
-.capture-btn {
-  border: none;
-  background: #7045e8;
-  color: white;
-  padding: 13px 35px;
-  border-radius: 9px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.capture-success {
-  color: #1c9b5a;
-  font-weight: 700;
-}
-
-.selfie-error {
+.ml-scanning-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(20, 20, 20, 0.9);
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.ml-laser-line {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #38bdf8, #818cf8, #a855f7, transparent);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.9), 0 0 32px rgba(168, 85, 247, 0.7);
+  animation: laserScan 1.6s infinite ease-in-out alternate;
+  z-index: 25;
+}
+
+@keyframes laserScan {
+  0% { top: 15%; opacity: 0.8; }
+  100% { top: 85%; opacity: 1; }
+}
+
+.ml-scan-box {
+  width: 220px;
+  height: 250px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 12px;
+}
+
+.ml-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: #38bdf8;
+  border-style: solid;
+}
+
+.ml-corner.tl {
+  top: 0;
+  left: 0;
+  border-width: 3px 0 0 3px;
+  border-radius: 6px 0 0 0;
+}
+
+.ml-corner.tr {
+  top: 0;
+  right: 0;
+  border-width: 3px 3px 0 0;
+  border-radius: 0 6px 0 0;
+}
+
+.ml-corner.bl {
+  bottom: 0;
+  left: 0;
+  border-width: 0 0 3px 3px;
+  border-radius: 0 0 0 6px;
+}
+
+.ml-corner.br {
+  bottom: 0;
+  right: 0;
+  border-width: 0 3px 3px 0;
+  border-radius: 0 0 6px 0;
+}
+
+.ml-scan-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(15, 23, 42, 0.85);
+  padding: 4px 12px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+/* Flash Effect */
+.selfie-flash {
+  position: absolute;
+  inset: 0;
+  background: white;
+  opacity: 0.9;
+  z-index: 50;
+  pointer-events: none;
+  animation: flashFade 0.25s ease-out forwards;
+}
+
+@keyframes flashFade {
+  0% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+
+/* Face Oval Framing Guide */
+.selfie-face-frame {
+  position: absolute;
+  width: 210px;
+  height: 260px;
+  border: 2.5px dashed rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.38);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.selfie-face-frame.is-detecting {
+  border-color: #38bdf8;
+  border-style: solid;
+  box-shadow: 0 0 0 9999px rgba(15, 23, 42, 0.42), 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+.selfie-face-frame.is-live-verified {
+  border-color: #10b981;
+  border-style: solid;
+  box-shadow: 0 0 0 9999px rgba(6, 78, 59, 0.35), 0 0 25px rgba(16, 185, 129, 0.6);
+  animation: liveVerifiedPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes liveVerifiedPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); border-color: #10b981; }
+  50% { transform: translate(-50%, -50%) scale(1.02); border-color: #34d399; }
+}
+
+.liveness-ring-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -5px;
+}
+
+.liveness-progress-circle {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  padding: 3px 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.liveness-pct {
+  font-size: 11px;
+  font-weight: 800;
+  color: #38bdf8;
+  letter-spacing: 0.5px;
+}
+
+.selfie-face-frame.is-live-verified .liveness-pct {
+  color: #34d399;
+}
+
+.selfie-face-frame-text {
+  white-space: nowrap;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: white;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 5px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: -32px;
+}
+
+.live-detecting-badge {
+  color: #7dd3fc;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.live-verified-badge {
+  color: #6ee7b7;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.capture-selfie-btn.live-ready {
+  background: linear-gradient(135deg, #10b981, #059669);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
+  animation: buttonLivePulse 2s infinite ease-in-out;
+}
+
+@keyframes buttonLivePulse {
+  0%, 100% { box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35); }
+  50% { box-shadow: 0 10px 30px rgba(16, 185, 129, 0.55); transform: translateY(-1px); }
+}
+
+/* =================================
+   ANTI-PROXY / SPOOF ALERT CARD
+================================= */
+
+.anti-proxy-alert-card {
+  margin-top: 14px;
+  background: #fef2f2;
+  border: 1.5px solid #f87171;
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.08);
+  animation: shakeAlert 0.4s ease-in-out;
+}
+
+@keyframes shakeAlert {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+.proxy-shield-icon {
+  font-size: 28px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.proxy-alert-body h4 {
+  margin: 0 0 6px 0;
+  color: #991b1b;
+  font-size: 14.5px;
+  font-weight: 800;
+}
+
+.proxy-reason {
+  font-size: 13px;
+  color: #b91c1c;
+  margin: 0 0 6px 0;
+  line-height: 1.4;
+}
+
+.proxy-rule {
+  font-size: 12px;
+  color: #7f1d1d;
+  margin: 0;
+  line-height: 1.45;
+  background: rgba(254, 226, 226, 0.6);
+  padding: 8px 10px;
+  border-radius: 8px;
+  border-left: 3px solid #ef4444;
+}
+
+.box-tag.live.spoof {
+  background: #fecaca;
+  color: #991b1b;
+  border: 1px solid #f87171;
+}
+
+/* Switch camera button on top right of frame */
+.selfie-switch-cam-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  backdrop-filter: blur(6px);
+  z-index: 10;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.selfie-switch-cam-btn:hover {
+  background: rgba(0, 0, 0, 0.85);
+  transform: scale(1.05);
+}
+
+/* Camera Error */
+.selfie-camera-error {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.95);
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 20px;
+  text-align: center;
+  z-index: 20;
 }
 
-.selfie-error p {
-  max-width: 300px;
+.selfie-camera-error .err-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+  color: #ef4444;
 }
 
-.selfie-error button {
-  padding: 10px 20px;
+.selfie-camera-error strong {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.selfie-camera-error p {
+  font-size: 13px;
+  color: #94a3b8;
+  max-width: 280px;
+  margin: 0 0 16px 0;
+}
+
+.retry-selfie-btn {
+  padding: 9px 20px;
   border: none;
-  border-radius: 7px;
+  border-radius: 8px;
+  background: #7045e8;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
-.verification-card {
-  padding: 30px;
+.retry-selfie-btn:hover {
+  background: #5b35c9;
 }
 
-.verification-card h2 {
-  margin-top: 0;
-  margin-bottom: 30px;
+/* =================================
+   INSTRUCTION & CONTROLS
+================================= */
+
+.selfie-instruction {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 18px 0 20px 0;
+  text-align: center;
 }
 
-.verification-step {
+/* BUTTONS CONTAINER */
+.selfie-controls-wrap {
+  width: 100%;
+  max-width: 480px;
   display: flex;
-  gap: 15px;
-  margin-bottom: 30px;
-  color: #8a93a8;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
 }
 
-.verification-step > div {
-  min-width: 34px;
-  height: 34px;
+/* TAKE SELFIE PRIMARY BUTTON */
+.capture-selfie-btn {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7045e8, #4f46e5);
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 8px 22px rgba(112, 69, 232, 0.3);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+}
+
+.capture-selfie-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(112, 69, 232, 0.4);
+  background: linear-gradient(135deg, #6034db, #4338ca);
+}
+
+.capture-selfie-btn:active {
+  transform: translateY(0);
+}
+
+.shutter-icon {
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background: #f0f1f6;
+  border: 2.5px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shutter-icon-inner {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* =================================
+   SIDE-BY-SIDE FACE COMPARISON
+================================= */
+
+.selfie-captured-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.face-comparison-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px;
+  gap: 10px;
+}
+
+.comparison-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.box-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.box-tag.live {
+  color: #7045e8;
+}
+
+.box-img-wrap {
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #e2e8f0;
+  border: 2px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comp-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.no-reg-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #94a3b8;
+  padding: 4px;
+  text-align: center;
+}
+
+.no-reg-placeholder small {
+  font-size: 9px;
+  line-height: 1.1;
+  margin-top: 2px;
+}
+
+.box-sub {
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  margin-top: 6px;
+  text-align: center;
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.comparison-vs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.vs-badge {
+  font-size: 11px;
+  font-weight: 800;
+  background: #e2e8f0;
+  color: #475569;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.match-score-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+}
+
+.match-score-pill.pass {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+
+.match-score-pill.fail {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+
+.match-score-pill strong {
+  font-size: 13px;
+}
+
+/* =================================
+   FIRST-TIME ENROLLMENT CARD
+================================= */
+
+.no-face-enroll-card {
+  display: flex;
+  gap: 12px;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 12px;
+  padding: 14px;
+  align-items: flex-start;
+}
+
+.enroll-icon {
+  font-size: 24px;
+}
+
+.no-face-enroll-card strong {
+  display: block;
+  font-size: 13.5px;
+  color: #92400e;
+  margin-bottom: 4px;
+}
+
+.no-face-enroll-card p {
+  font-size: 12px;
+  color: #78350f;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+
+.enroll-face-action-btn {
+  background: #f59e0b;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.enroll-face-action-btn:hover {
+  background: #d97706;
+}
+
+/* =================================
+   RESULT BADGES & BUTTONS
+================================= */
+
+.selfie-success-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.selfie-error-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.action-buttons-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.continue-location-btn {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 8px 22px rgba(16, 185, 129, 0.3);
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.continue-location-btn:disabled {
+  background: #94a3b8;
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.continue-location-btn:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, #059669, #047857);
+}
+
+.retake-selfie-btn {
+  width: 100%;
+  height: 46px;
+  background: #ffffff;
+  border: 1.5px solid #d1d5db;
+  border-radius: 12px;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.retake-selfie-btn:hover {
+  background: #f8fafc;
+  border-color: #9ca3af;
+  color: #111827;
+}
+
+/* =================================
+   VERIFICATION PROGRESS CARD & ML SPECS
+================================= */
+
+.selfie-verification-card {
+  padding: 28px 26px;
+}
+
+.selfie-verification-card h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 24px 0;
+}
+
+.selfie-step-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  align-items: flex-start;
+}
+
+.selfie-step-bubble {
+  min-width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #64748b;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
 }
 
-.verification-step strong {
-  color: #17213a;
+.selfie-step-item.completed .selfie-step-bubble {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
 }
 
-.verification-step p {
-  font-size: 13px;
+.selfie-step-item.active .selfie-step-bubble {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 2px solid #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.selfie-step-item strong {
+  display: block;
+  font-size: 14.5px;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.selfie-step-item p {
+  font-size: 12.5px;
+  color: #64748b;
   line-height: 1.5;
-  margin-top: 6px;
+  margin: 0;
 }
 
-.verification-step.completed > div {
-  background: #e7f9ef;
-  color: #1c9b5a;
+.ml-info-box {
+  margin-top: 24px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
 }
 
-.verification-step.active > div {
-  background: #eee8ff;
-  color: #7045e8;
+.ml-info-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 13.5px;
+  color: #1e293b;
 }
 
-@media (max-width: 800px) {
+.ml-specs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ml-specs-list li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #64748b;
+  border-bottom: 1px dashed #e2e8f0;
+  padding-bottom: 4px;
+}
+
+.ml-specs-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.ml-specs-list li strong {
+  color: #334155;
+  font-weight: 600;
+}
+
+/* =================================
+   RESPONSIVE (MOBILE & TABLET)
+================================= */
+
+@media (max-width: 850px) {
   .selfie-content {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .selfie-camera-frame {
-    height: 350px;
+    height: 340px;
+  }
+}
+
+@media (max-width: 500px) {
+  .selfie-header {
+    height: 64px;
+    padding: 0 16px;
+  }
+
+  .selfie-brand-a {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+    border-radius: 10px;
+  }
+
+  .selfie-brand h2 {
+    font-size: 15px;
+  }
+
+  .selfie-container {
+    padding: 20px 14px 40px;
+  }
+
+  .selfie-title {
+    margin-bottom: 22px;
+  }
+
+  .selfie-title h1 {
+    font-size: 24px;
+  }
+
+  .selfie-card-header {
+    padding: 14px 16px;
+  }
+
+  .selfie-camera-area {
+    padding: 16px 12px;
+  }
+
+  .selfie-camera-frame {
+    height: 300px;
+  }
+
+  .selfie-face-frame {
+    width: 160px;
+    height: 220px;
+  }
+
+  .selfie-back-btn {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+
+  .selfie-verification-card {
+    padding: 20px 16px;
+  }
+
+  .face-comparison-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .comparison-vs {
+    flex-direction: row;
+    gap: 10px;
   }
 }

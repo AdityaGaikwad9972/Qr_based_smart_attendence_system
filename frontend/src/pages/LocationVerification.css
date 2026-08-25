@@ -302,13 +302,72 @@
 @media (max-width: 800px) {
   .location-content {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .location-title h1 {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   .location-container {
-    padding: 35px 0;
+    padding: 30px 16px;
+    max-width: 100%;
+  }
+
+  .location-card,
+  .verification-card {
+    padding: 30px 20px;
+    min-height: auto;
   }
 }
+
+@media (max-width: 500px) {
+  .location-header {
+    height: 64px;
+    padding: 0 16px;
+  }
+
+  .location-brand-a {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+    border-radius: 10px;
+  }
+
+  .location-brand h2 {
+    font-size: 15px;
+  }
+
+  .location-container {
+    padding: 20px 14px 40px;
+  }
+
+  .location-title {
+    margin-bottom: 25px;
+  }
+
+  .location-title h1 {
+    font-size: 24px;
+  }
+
+  .location-card,
+  .verification-card {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+
+  .location-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 30px;
+  }
+
+  .location-back-btn {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+
+  .location-security {
+    padding: 16px 14px;
+  }
+}

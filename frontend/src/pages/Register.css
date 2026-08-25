@@ -1,0 +1,830 @@
+/* =========================================================
+   SMART ATTENDANCE - UNIFIED REGISTRATION STYLES
+   ========================================================= */
+
+.unified-register-page {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/acharya-campus.jpg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #17213a;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.unified-register-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(244, 247, 255, 0.94) 0%,
+    rgba(244, 247, 255, 0.88) 45%,
+    rgba(244, 247, 255, 0.82) 100%
+  );
+  z-index: 0;
+}
+
+/* =================================
+   MAIN CONTAINER
+================================= */
+
+.unified-register-container {
+  position: relative;
+  z-index: 2;
+  width: min(1180px, 95%);
+  display: grid;
+  grid-template-columns: 1fr 520px;
+  align-items: center;
+  gap: 50px;
+}
+
+/* =================================
+   LEFT HERO INFO
+================================= */
+
+.reg-info-side {
+  padding-left: 20px;
+  max-width: 580px;
+}
+
+.reg-badge-a {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 18px;
+  font-size: 38px;
+  font-weight: 800;
+  color: #6546e8;
+  box-shadow: 0 12px 30px rgba(42, 55, 95, 0.12);
+  margin-bottom: 28px;
+}
+
+.reg-info-side h1 {
+  font-size: clamp(38px, 4.5vw, 54px);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  color: #14213d;
+  margin: 0 0 20px 0;
+}
+
+.reg-info-side h1 span {
+  color: #6845e8;
+}
+
+.reg-description {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: #52627c;
+  margin-bottom: 30px;
+}
+
+.reg-features {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.reg-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #243654;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.reg-feature-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(245, 241, 255, 0.95);
+  border: 1px solid rgba(110, 74, 235, 0.15);
+  color: #6845e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+/* =================================
+   RIGHT CARD
+================================= */
+
+.reg-card {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #e5e9f2;
+  border-radius: 24px;
+  padding: 36px 36px 32px;
+  box-shadow:
+    0 25px 50px -12px rgba(15, 23, 42, 0.12),
+    0 4px 16px rgba(15, 23, 42, 0.04);
+  box-sizing: border-box;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Custom scrollbar */
+.reg-card::-webkit-scrollbar {
+  width: 6px;
+}
+.reg-card::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.reg-card-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.reg-card-header h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 6px 0;
+}
+
+.reg-card-header p {
+  color: #6b7280;
+  font-size: 13.5px;
+  margin: 0;
+}
+
+/* =================================
+   ROLE SELECTOR TABS
+================================= */
+
+.reg-role-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #f1f5f9;
+  padding: 5px;
+  border-radius: 14px;
+  margin-bottom: 24px;
+  gap: 4px;
+}
+
+.reg-role-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 8px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.reg-role-tab:hover {
+  color: #1e293b;
+}
+
+.reg-role-tab.active {
+  background: #ffffff;
+  color: #2563eb;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.reg-role-tab.active.faculty {
+  color: #4f46e5;
+}
+
+.reg-role-tab.active.admin {
+  color: #0f172a;
+}
+
+/* =================================
+   FORM GROUPS
+================================= */
+
+.reg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reg-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.reg-form-group label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.reg-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.reg-input-icon {
+  position: absolute;
+  left: 14px;
+  font-size: 15px;
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+.reg-input-wrapper input,
+.reg-input-wrapper select {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px 0 42px;
+  border: 1px solid #d6dbe5;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #111827;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.reg-input-wrapper input:focus,
+.reg-input-wrapper select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.reg-show-pwd-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+.reg-show-pwd-btn:hover {
+  color: #111827;
+}
+
+/* =================================
+   FACE REGISTRATION COMPONENT
+================================= */
+
+.reg-face-section {
+  background: #f8fafc;
+  border: 1.5px dashed #cbd5e1;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.reg-face-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reg-face-header strong {
+  font-size: 13.5px;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.reg-face-badge {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.reg-face-badge.pending {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.reg-face-badge.captured {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+/* Live Cam Frame */
+.reg-face-cam-frame {
+  width: 100%;
+  max-width: 320px;
+  height: 240px;
+  background: #0f172a;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reg-face-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.reg-face-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reg-face-oval-guide {
+  position: absolute;
+  width: 120px;
+  height: 150px;
+  border: 2px dashed rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.reg-cam-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 12.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.reg-cam-btn.start {
+  background: #2563eb;
+  color: white;
+}
+
+.reg-cam-btn.start:hover {
+  background: #1d4ed8;
+}
+
+.reg-cam-btn.capture {
+  background: #16a34a;
+  color: white;
+}
+
+.reg-cam-btn.retake {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #374151;
+}
+
+/* =================================
+   SUBMIT BUTTON & FOOTER
+================================= */
+
+.reg-submit-button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+  transition: all 0.2s ease;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.reg-submit-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.35);
+}
+
+.reg-submit-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.reg-submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.reg-error-message {
+  color: #dc2626;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  margin: 4px 0 0 0;
+}
+
+.reg-success-message {
+  color: #15803d;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  margin: 4px 0 0 0;
+}
+
+.reg-login-link-container {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #edf0f5;
+  color: #6b7280;
+  font-size: 13.5px;
+}
+
+.reg-login-link-btn {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  margin-left: 5px;
+  text-decoration: underline;
+}
+
+.reg-login-link-btn:hover {
+  color: #1d4ed8;
+}
+
+/* =================================
+   RESPONSIVE (MOBILE & TABLET)
+================================= */
+
+@media (max-width: 950px) {
+  .unified-register-page {
+    padding: 24px 14px;
+    align-items: flex-start;
+  }
+
+  .unified-register-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .reg-info-side {
+    padding-left: 0;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .reg-badge-a {
+    margin: 0 auto 16px;
+    width: 60px;
+    height: 60px;
+    font-size: 32px;
+    border-radius: 14px;
+  }
+
+  .reg-info-side h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .reg-description {
+    font-size: 14.5px;
+    margin-bottom: 16px;
+  }
+
+  .reg-features {
+    display: none;
+  }
+
+  .reg-card {
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+
+@media (max-width: 520px) {
+  .unified-register-page {
+    padding: 16px 10px;
+  }
+
+  .reg-card {
+    padding: 24px 16px 20px;
+    border-radius: 18px;
+  }
+
+  .reg-card-header h2 {
+    font-size: 21px;
+  }
+
+  .reg-role-tabs {
+    padding: 4px;
+    gap: 2px;
+  }
+
+  .reg-role-tab {
+    padding: 8px 4px;
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  .reg-input-wrapper input,
+  .reg-input-wrapper select {
+    font-size: 16px; /* Prevents auto-zoom on iOS */
+    height: 48px;
+  }
+
+  .reg-submit-button {
+    height: 50px;
+    font-size: 16px;
+  }
+
+  .reg-face-cam-frame {
+    max-width: 100%;
+    height: 210px;
+  }
+}
+
+/* =========================================================
+   MULTI-IMAGE FACE CAPTURE — POSE PROGRESS, OVERLAY, GRID
+   ========================================================= */
+
+/* Pose Progress Steps */
+.reg-pose-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 10px 0 8px;
+  padding: 0 8px;
+}
+
+.reg-pose-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  position: relative;
+}
+
+.reg-pose-step::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 60%;
+  width: calc(100% - 20px);
+  height: 2px;
+  background: #334155;
+  z-index: 0;
+}
+
+.reg-pose-step:last-child::after {
+  display: none;
+}
+
+.reg-pose-step.done::after {
+  background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.reg-pose-dot {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  background: #1e293b;
+  border: 2px solid #334155;
+  color: #94a3b8;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.reg-pose-step.done .reg-pose-dot {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-color: #10b981;
+  color: #fff;
+  font-size: 13px;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.35);
+}
+
+.reg-pose-step.active .reg-pose-dot {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  border-color: #6366f1;
+  color: #fff;
+  animation: posePulse 1.5s ease-in-out infinite;
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+}
+
+@keyframes posePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+
+.reg-pose-label {
+  font-size: 10px;
+  color: #94a3b8;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.reg-pose-step.done .reg-pose-label {
+  color: #10b981;
+}
+
+.reg-pose-step.active .reg-pose-label {
+  color: #818cf8;
+  font-weight: 600;
+}
+
+/* Pose Instruction Overlay on Camera */
+.reg-pose-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  border-radius: 14px;
+  padding: 8px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.reg-pose-instruction-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.reg-pose-instruction-text {
+  font-size: 12px;
+  color: #e2e8f0;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Countdown overlay */
+.reg-countdown-overlay {
+  font-size: 42px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(99, 102, 241, 0.6);
+  animation: countdownPop 1s ease-in-out;
+}
+
+@keyframes countdownPop {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Thumbnail Strip */
+.reg-face-thumbnails {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 8px 0 4px;
+  flex-wrap: wrap;
+}
+
+.reg-thumb-item {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid #10b981;
+  background: #0f172a;
+}
+
+.reg-thumb-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reg-thumb-item span {
+  position: absolute;
+  bottom: 1px;
+  right: 2px;
+  font-size: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  padding: 0 3px;
+}
+
+.reg-thumb-item.empty {
+  border-color: #334155;
+  border-style: dashed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reg-thumb-item.empty span {
+  position: static;
+  background: transparent;
+  font-size: 16px;
+  color: #475569;
+}
+
+/* Grid Preview (all 5 captured) */
+.reg-face-grid-preview {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.reg-face-grid-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid #10b981;
+  aspect-ratio: 3/4;
+  background: #0f172a;
+}
+
+.reg-face-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reg-face-grid-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 9px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+  padding: 12px 2px 3px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .reg-pose-progress {
+    gap: 2px;
+  }
+  .reg-pose-dot {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
+  }
+  .reg-pose-label {
+    font-size: 8px;
+  }
+  .reg-face-grid-preview {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .reg-thumb-item {
+    width: 42px;
+    height: 42px;
+  }
+}
